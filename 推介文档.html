@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>短视频运营推介 | 姜韬</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #0D1B35;
+      --navy-mid: #162447;
+      --accent: #E8622A;
+      --accent-light: #FF7A3D;
+      --gold: #F2A93B;
+      --text: #1A1A2E;
+      --text-muted: #6B7280;
+      --bg: #F7F8FC;
+      --white: #FFFFFF;
+      --border: #E5E7EB;
+    }
+
+    body {
+      font-family: 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 60%, #1E3A5F 100%);
+      color: white;
+      padding: 72px 40px 64px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -80px; right: -80px;
+      width: 360px; height: 360px;
+      background: radial-gradient(circle, rgba(232,98,42,0.18) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -60px; left: -60px;
+      width: 280px; height: 280px;
+      background: radial-gradient(circle, rgba(242,169,59,0.12) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .hero-eyebrow {
+      display: inline-block;
+      background: rgba(232,98,42,0.25);
+      border: 1px solid rgba(232,98,42,0.5);
+      color: #FFAA77;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      padding: 6px 18px;
+      border-radius: 20px;
+      margin-bottom: 24px;
+    }
+    .hero h1 {
+      font-size: clamp(28px, 5vw, 48px);
+      font-weight: 900;
+      line-height: 1.2;
+      margin-bottom: 12px;
+      letter-spacing: -0.5px;
+    }
+    .hero h1 span { color: var(--accent-light); }
+    .hero-sub {
+      font-size: 17px;
+      color: rgba(255,255,255,0.65);
+      max-width: 480px;
+      margin: 0 auto 48px;
+      font-weight: 300;
+    }
+
+    /* ── STAT BAR ── */
+    .stat-bar {
+      display: flex;
+      justify-content: center;
+      gap: 0;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 1;
+    }
+    .stat-item {
+      text-align: center;
+      padding: 20px 36px;
+      border-right: 1px solid rgba(255,255,255,0.12);
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-num {
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 900;
+      color: var(--gold);
+      line-height: 1;
+      display: block;
+    }
+    .stat-num em {
+      font-style: normal;
+      font-size: 0.55em;
+      color: rgba(242,169,59,0.8);
+    }
+    .stat-label {
+      font-size: 13px;
+      color: rgba(255,255,255,0.55);
+      margin-top: 6px;
+      font-weight: 400;
+      letter-spacing: 0.5px;
+    }
+
+    /* ── SECTION WRAPPER ── */
+    .section { padding: 72px 40px; max-width: 1000px; margin: 0 auto; }
+    .section-tag {
+      display: inline-block;
+      background: rgba(232,98,42,0.1);
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      padding: 4px 14px;
+      border-radius: 4px;
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-size: clamp(22px, 3.5vw, 32px);
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+    .section-desc {
+      font-size: 15px;
+      color: var(--text-muted);
+      max-width: 560px;
+      margin-bottom: 44px;
+    }
+
+    /* ── COMPARE TABLE ── */
+    .compare-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .compare-card {
+      border-radius: 14px;
+      padding: 28px 30px;
+    }
+    .compare-card.bad {
+      background: #FFF7F5;
+      border: 1.5px solid #FDDDD4;
+    }
+    .compare-card.good {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+      color: white;
+    }
+    .compare-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .compare-icon {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+    .bad .compare-icon { background: #FDDDD4; }
+    .good .compare-icon { background: rgba(232,98,42,0.25); }
+    .compare-title {
+      font-size: 16px;
+      font-weight: 700;
+    }
+    .bad .compare-title { color: #C04A2A; }
+    .good .compare-title { color: white; }
+    .compare-list { list-style: none; }
+    .compare-list li {
+      font-size: 14px;
+      padding: 9px 0;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      line-height: 1.5;
+    }
+    .good .compare-list li { border-bottom-color: rgba(255,255,255,0.1); color: rgba(255,255,255,0.85); }
+    .bad .compare-list li { color: #7A4030; }
+    .compare-list li:last-child { border-bottom: none; }
+    .compare-list li::before {
+      content: '✕';
+      font-size: 12px;
+      color: #E05C3A;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .good .compare-list li::before { content: '✓'; color: var(--gold); }
+
+    /* ── CASES ── */
+    .cases-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 24px;
+    }
+    .case-card {
+      background: var(--white);
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .case-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 48px rgba(13,27,53,0.12);
+    }
+    .case-card.featured {
+      grid-column: span 2;
+      border: 2px solid var(--accent);
+      box-shadow: 0 4px 24px rgba(232,98,42,0.15);
+    }
+    .case-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 20px;
+      letter-spacing: 0.5px;
+    }
+    .badge-million { background: linear-gradient(90deg, #E8622A, #F2A93B); color: white; }
+    .badge-500k { background: linear-gradient(90deg, #5B5EF4, #7E6AEA); color: white; }
+    .badge-100k { background: #162447; color: white; }
+
+    .case-imgs {
+      display: grid;
+      gap: 3px;
+      background: #F1F3F5;
+    }
+    .case-imgs.two-col { grid-template-columns: 1fr 1fr; }
+    .case-imgs img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+    }
+    .case-body { padding: 20px 22px; }
+    .case-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.5;
+      margin: 8px 0 14px;
+    }
+    .case-metrics {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .metric-chip {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 5px 10px;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+    .metric-chip strong {
+      color: var(--accent);
+      font-weight: 700;
+    }
+    .case-platform-row {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+    }
+    .platform-tag {
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 4px;
+      letter-spacing: 0.5px;
+    }
+    .tag-douyin { background: #E8F4FF; color: #1565C0; }
+    .tag-xhs { background: #FFF0F0; color: #D32F2F; }
+    .tag-total { background: #FFF8E1; color: #E65100; font-weight: 700; }
+
+    /* ── OFFER SECTION ── */
+    .offer-wrap {
+      background: linear-gradient(135deg, var(--navy) 0%, #1A3461 100%);
+      border-radius: 20px;
+      padding: 56px 48px;
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+    .offer-wrap::before {
+      content: '';
+      position: absolute;
+      top: -100px; right: -100px;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(232,98,42,0.15) 0%, transparent 65%);
+      border-radius: 50%;
+    }
+    .offer-tag {
+      display: inline-block;
+      background: var(--accent);
+      color: white;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 6px 16px;
+      border-radius: 6px;
+      letter-spacing: 1px;
+      margin-bottom: 20px;
+    }
+    .offer-title {
+      font-size: clamp(24px, 4vw, 36px);
+      font-weight: 900;
+      line-height: 1.25;
+      margin-bottom: 12px;
+    }
+    .offer-title span { color: var(--gold); }
+    .offer-desc {
+      font-size: 16px;
+      color: rgba(255,255,255,0.65);
+      max-width: 520px;
+      margin-bottom: 36px;
+    }
+    .offer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 16px;
+      margin-bottom: 36px;
+    }
+    .offer-item {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 12px;
+      padding: 20px 18px;
+      text-align: center;
+    }
+    .offer-item-icon { font-size: 26px; margin-bottom: 10px; }
+    .offer-item-label {
+      font-size: 13px;
+      color: rgba(255,255,255,0.8);
+      font-weight: 500;
+    }
+
+    /* ── EXPECTATION ── */
+    .expect-row {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      background: white;
+      border-radius: 14px;
+      padding: 24px 28px;
+      border: 1px solid var(--border);
+      margin-bottom: 16px;
+    }
+    .expect-num {
+      font-size: 36px;
+      font-weight: 900;
+      color: var(--accent);
+      min-width: 64px;
+      line-height: 1;
+    }
+    .expect-content h4 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 4px;
+    }
+    .expect-content p {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* ── CTA ── */
+    .cta-section {
+      background: white;
+      border-top: 1px solid var(--border);
+      padding: 64px 40px;
+      text-align: center;
+    }
+    .cta-title {
+      font-size: clamp(22px, 3.5vw, 32px);
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 12px;
+    }
+    .cta-sub {
+      font-size: 15px;
+      color: var(--text-muted);
+      margin-bottom: 36px;
+    }
+    .cta-btn {
+      display: inline-block;
+      background: var(--accent);
+      color: white;
+      font-size: 16px;
+      font-weight: 700;
+      padding: 16px 48px;
+      border-radius: 50px;
+      text-decoration: none;
+      letter-spacing: 1px;
+      box-shadow: 0 8px 24px rgba(232,98,42,0.35);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(232,98,42,0.45);
+    }
+    .cta-note {
+      margin-top: 24px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    /* ── DIVIDER ── */
+    .full-divider { border: none; border-top: 1px solid var(--border); margin: 0; }
+
+    @media (max-width: 640px) {
+      .stat-item { padding: 16px 20px; }
+      .compare-grid { grid-template-columns: 1fr; }
+      .case-card.featured { grid-column: span 1; }
+      .offer-wrap { padding: 36px 24px; }
+      .hero { padding: 52px 24px 48px; }
+      .section { padding: 52px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── HERO ── -->
+<header class="hero">
+  <div class="hero-eyebrow">短视频运营 · 流量爆款 · 精准定位</div>
+  <h1>让每一条视频<br><span>都有机会成为爆款</span></h1>
+  <p class="hero-sub">两个月实战验证，超过 40% 的爆款命中率——这不是运气，是可复制的方法论。</p>
+
+  <div class="stat-bar">
+    <div class="stat-item">
+      <span class="stat-num">12<em>条</em></span>
+      <div class="stat-label">两个月发布量</div>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">5<em>条</em></span>
+      <div class="stat-label">爆款（10万+播放）</div>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">40<em>%+</em></span>
+      <div class="stat-label">爆款命中率</div>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">126<em>万+</em></span>
+      <div class="stat-label">单条最高播放</div>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">1.5<em>万</em></span>
+      <div class="stat-label">全平台累计粉丝</div>
+    </div>
+  </div>
+</header>
+
+<!-- ── 核心优势 ── -->
+<section class="section">
+  <div class="section-tag">核心优势</div>
+  <h2 class="section-title">同样在做短视频，差距在哪里？</h2>
+  <p class="section-desc">偶然的爆款没有意义，能稳定出结果的方法论才是真正的竞争力。</p>
+
+  <div class="compare-grid">
+    <div class="compare-card bad">
+      <div class="compare-header">
+        <div class="compare-icon">😶</div>
+        <div class="compare-title">普通短视频运营</div>
+      </div>
+      <ul class="compare-list">
+        <li>偶尔出爆款，但下一条依然惨淡，无法复制</li>
+        <li>盲目追热点，账号内容方向散乱</li>
+        <li>缺乏垂直定位，粉丝粘性低，变现困难</li>
+        <li>不清楚哪个环节出了问题，无从优化</li>
+      </ul>
+    </div>
+    <div class="compare-card good">
+      <div class="compare-header">
+        <div class="compare-icon">🎯</div>
+        <div class="compare-title">我的做法</div>
+      </div>
+      <ul class="compare-list">
+        <li>用可验证的选题框架提高爆款命中率，减少无效投入</li>
+        <li>根据您的业务特点精准定位垂直赛道</li>
+        <li>保持账号垂直度，为长期商业变现打好基础</li>
+        <li>数据反馈驱动持续优化，每条视频都有迭代意义</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<hr class="full-divider">
+
+<!-- ── 案例展示 ── -->
+<section class="section">
+  <div class="section-tag">实战案例</div>
+  <h2 class="section-title">真实数据，有据可查</h2>
+  <p class="section-desc">以下均为本人账号实际发布视频，数据截图来自平台后台，非任何形式的虚构。</p>
+
+  <div class="cases-grid">
+
+    <!-- Case 4: 百万+ FEATURED -->
+    <div class="case-card featured">
+      <div class="case-imgs two-col">
+        <img src="case4-1.png" alt="百万播放抖音截图">
+        <img src="case-4-2.png" alt="百万播放小红书截图">
+      </div>
+      <div class="case-body">
+        <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
+          <span class="case-badge badge-million">🔥 百万级爆款</span>
+        </div>
+        <p class="case-title">「牛马找不到工作，企业找不到牛马，绝了」<br>——AI裁员浪潮下的职场现实</p>
+        <div class="case-platform-row">
+          <span class="platform-tag tag-douyin">抖音 92.9万</span>
+          <span class="platform-tag tag-xhs">小红书 33.4万</span>
+          <span class="platform-tag tag-total">全平台合计 126万+</span>
+        </div>
+        <div class="case-metrics">
+          <div class="metric-chip">点赞 <strong>2.3万</strong>（抖音）</div>
+          <div class="metric-chip">分享 <strong>7,400</strong></div>
+          <div class="metric-chip">收藏 <strong>6,378</strong></div>
+          <div class="metric-chip">小红书转发 <strong>7,617</strong></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Case 5: 50万+ FEATURED -->
+    <div class="case-card featured">
+      <div class="case-imgs two-col">
+        <img src="case5-1.png" alt="50万播放抖音截图">
+        <img src="case5-2.png" alt="50万播放小红书截图">
+      </div>
+      <div class="case-body">
+        <div style="display:flex; align-items:center; gap:10px;">
+          <span class="case-badge badge-500k">💥 65万+ 播放</span>
+        </div>
+        <p class="case-title">「加拿大程序员失业走什么流程？」<br>——补偿金那些坑，没人告诉你</p>
+        <div class="case-platform-row">
+          <span class="platform-tag tag-douyin">抖音 16.6万</span>
+          <span class="platform-tag tag-xhs">小红书 49万</span>
+          <span class="platform-tag tag-total">全平台合计 65万+</span>
+        </div>
+        <div class="case-metrics">
+          <div class="metric-chip">平均播放时长 <strong>51秒</strong></div>
+          <div class="metric-chip">小红书点赞 <strong>5,522</strong></div>
+          <div class="metric-chip">小红书转发 <strong>2,025</strong></div>
+          <div class="metric-chip">收藏 <strong>1,502</strong></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Case 1 -->
+    <div class="case-card">
+      <div class="case-imgs">
+        <img src="case1-1.png" alt="抖音截图">
+        <img src="case1-2.png" alt="数据截图">
+      </div>
+      <div class="case-body">
+        <span class="case-badge badge-100k">10万+ 爆款</span>
+        <p class="case-title">「北美程序员被裁后，我才看懂打工的真相」</p>
+        <div class="case-platform-row">
+          <span class="platform-tag tag-douyin">抖音 13万</span>
+        </div>
+        <div class="case-metrics">
+          <div class="metric-chip">封面点击率 <strong>37.32%</strong></div>
+          <div class="metric-chip">收藏 <strong>1,529</strong></div>
+          <div class="metric-chip">分享 <strong>708</strong></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Case 3 -->
+    <div class="case-card">
+      <div class="case-imgs two-col">
+        <img src="case3-1.png" alt="抖音截图">
+        <img src="case3-2.png" alt="小红书截图">
+      </div>
+      <div class="case-body">
+        <span class="case-badge badge-100k">10万+ 爆款</span>
+        <p class="case-title">「在加拿大当电工这条路还好走吗？除了坑就是雷」</p>
+        <div class="case-platform-row">
+          <span class="platform-tag tag-douyin">抖音 12.6万</span>
+          <span class="platform-tag tag-xhs">小红书 10.1万</span>
+        </div>
+        <div class="case-metrics">
+          <div class="metric-chip">封面点击率 <strong>42.51%</strong></div>
+          <div class="metric-chip">评论 <strong>718</strong></div>
+          <div class="metric-chip">平均时长 <strong>48秒</strong></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Case 2 -->
+    <div class="case-card">
+      <div class="case-imgs">
+        <img src="case2-1.png" alt="截图">
+      </div>
+      <div class="case-body">
+        <span class="case-badge badge-100k">10万+ 爆款</span>
+        <p class="case-title">「猎头说不会被AI替代，两天后岗位没了」<br>七八年经验，输给了一句"我们不招了"</p>
+        <div class="case-platform-row">
+          <span class="platform-tag tag-douyin">抖音 10.8万</span>
+        </div>
+        <div class="case-metrics">
+          <div class="metric-chip">点赞 <strong>2,967</strong></div>
+          <div class="metric-chip">评论 <strong>412</strong></div>
+          <div class="metric-chip">分享 <strong>767</strong></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="full-divider">
+
+<!-- ── 合作方式 ── -->
+<section class="section">
+  <div class="section-tag">合作方式</div>
+  <h2 class="section-title">零风险启动，先看结果再谈合作</h2>
+  <p class="section-desc">为了建立第一批品牌案例，现阶段提供以下免费合作机会。</p>
+
+  <div class="offer-wrap">
+    <div class="offer-tag">限量免费名额</div>
+    <h3 class="offer-title">免费为您制作<span>10条短视频</span><br>全套包干，您只需要出镜拍摄</h3>
+    <p class="offer-desc">选题策划、文案撰写、拍摄指导、后期剪辑、发布运营建议——所有环节我全负责。您只需在专业内容上提供行业知识配合，以及出镜拍摄即可。</p>
+
+    <div class="offer-grid">
+      <div class="offer-item">
+        <div class="offer-item-icon">🎯</div>
+        <div class="offer-item-label">爆款选题策划</div>
+      </div>
+      <div class="offer-item">
+        <div class="offer-item-icon">✍️</div>
+        <div class="offer-item-label">视频文案撰写</div>
+      </div>
+      <div class="offer-item">
+        <div class="offer-item-icon">🎬</div>
+        <div class="offer-item-label">拍摄全程指导</div>
+      </div>
+      <div class="offer-item">
+        <div class="offer-item-icon">✂️</div>
+        <div class="offer-item-label">专业后期剪辑</div>
+      </div>
+      <div class="offer-item">
+        <div class="offer-item-icon">📊</div>
+        <div class="offer-item-label">发布策略指导</div>
+      </div>
+    </div>
+
+    <p style="font-size:13px; color:rgba(255,255,255,0.45); line-height:1.7;">
+      * 合作期间内容按照流量打法执行，以保障结果可预期。<br>
+      * 您同意我将合作数据（播放量、互动数据等）用于案例展示，不涉及账号隐私信息。
+    </p>
+  </div>
+</section>
+
+<hr class="full-divider">
+
+<!-- ── 预期结果 ── -->
+<section class="section">
+  <div class="section-tag">预期结果</div>
+  <h2 class="section-title">10条视频，我们的目标</h2>
+  <p class="section-desc">基于已验证的方法论，以下是可以合理预期的结果。</p>
+
+  <div class="expect-row">
+    <div class="expect-num">2–3</div>
+    <div class="expect-content">
+      <h4>条爆款视频（全平台 10万+ 播放）</h4>
+      <p>依据过去 12 条视频 40%+ 的爆款率测算，10 条视频中做出 2–3 条爆款是合理预期，而非承诺。</p>
+    </div>
+  </div>
+
+  <div class="expect-row">
+    <div class="expect-num" style="font-size:28px; color: var(--navy-mid);">持续</div>
+    <div class="expect-content">
+      <h4>账号垂直度和粉丝粘性同步建立</h4>
+      <p>爆款只是短期结果，垂直账号定位才是长期变现的基础。合作过程中同步完成账号人设与赛道的精准锚定。</p>
+    </div>
+  </div>
+
+  <div class="expect-row">
+    <div class="expect-num" style="font-size:28px; color: var(--navy-mid);">数据</div>
+    <div class="expect-content">
+      <h4>后续合作由您用结果决定</h4>
+      <p>10 条视频结束后，所有数据摆在面前——您基于实际结果决定是否继续合作、如何合作，没有任何额外压力。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ── -->
+<section class="cta-section">
+  <p class="section-tag" style="margin-bottom:16px;">立即开始</p>
+  <h2 class="cta-title">名额有限，现在联系我</h2>
+  <p class="cta-sub">免费合作机会仅面向少数意向客户开放，越早启动越早看到结果。</p>
+  <a href="mailto:tjiang4966@gmail.com" class="cta-btn">联系我 → tjiang4966@gmail.com</a>
+  <p class="cta-note">也可以直接添加微信洽谈合作细节</p>
+</section>
+
+</body>
+</html>
+```
